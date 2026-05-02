@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce204a1152f306d4bae764885814eda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::itemBoost
-  boostMultiplier: 2
+  boostMultiplier: 3
   boostDuration: 1.5

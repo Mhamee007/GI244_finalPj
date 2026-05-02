@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         float forwardInput = input.y;
         float horizontalInput = input.x;
 
-        transform.Translate(Vector3.right * forwardInput * speed * Time.deltaTime);
+        transform.Translate(Vector3.left * forwardInput * speed * Time.deltaTime);
         transform.Translate(Vector3.forward * horizontalInput * speed * Time.deltaTime);
     }
 
