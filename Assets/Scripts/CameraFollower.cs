@@ -10,25 +10,17 @@ public class CameraFollower : MonoBehaviour
 {
     public GameObject player;
     public Vector3 offset;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     // transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
-    //     // transform.position = player.transform.position;
-    //     transform.position = player.transform.position + offset;
-    // }
+    
+     void Update()
+     {
+         transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+         transform.position = player.transform.position;
+         transform.position = player.transform.position + offset;
+     }
 
     void LateUpdate()
     {
-        // transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
-        // transform.position = player.transform.position;
+       
         transform.position = player.transform.position + offset;
     }
 }

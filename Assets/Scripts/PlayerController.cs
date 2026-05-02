@@ -1,48 +1,38 @@
-// Lecture Note
-// [1] New Input System in Unity: https://learn.unity.com/tutorial/getting-started-with-the-new-input-system
-
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float turnSpeed = 0f;
-    float horizontalInput = 0;
-    float forwardInput = 0;
+    public float speed = 5f;
+    float normalSpeed;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // hello classroom
-        Debug.Log("Hello GI244");
+        normalSpeed = speed;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        // [1] manage input using Keyboard
-        // if (Input.GetKey(KeyCode.RightArrow))
-        // {
-        //     horizontalInput = 1;
-        // }
-        // else if (Input.GetKey(KeyCode.LeftArrow))
-        // {
-        //     horizontalInput = -1;
-        // }w
-
-        // [2] manage input using Input System
-        // horizontalInput = Input.GetAxis("Horizontal");
-
-        // [3] manage input using Input System (newest solution from Unity)
         InputAction moveAction = InputSystem.actions.FindAction("Move");
-        horizontalInput = moveAction.ReadValue<Vector2>().x;
-        forwardInput = moveAction.ReadValue<Vector2>().y;
+        Vector2 input = moveAction.ReadValue<Vector2>();
 
-        // transform.Translate(speed * Time.deltaTime * Vector3.forward);
-        transform.Translate(forwardInput * speed * Time.deltaTime * Vector3.forward);
-        // transform.Translate(turnSpeed * Time.deltaTime * Vector3.right);
-        // transform.Translate(horizontalInput * turnSpeed * Time.deltaTime * Vector3.right);
-        transform.Rotate(Vector3.up, horizontalInput * Time.deltaTime * turnSpeed);
+        float forwardInput = input.y;
+        float horizontalInput = input.x;
+
+        transform.Translate(Vector3.right * forwardInput * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * horizontalInput * speed * Time.deltaTime);
     }
+
+    public void ActivateBoost(float multiplier, float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(BoostRoutine(multiplier, duration));
+    }
+    IEnumerator BoostRoutine(float multiplier, float duration)
+    {
+        speed = normalSpeed * multiplier;
+        yield return new WaitForSeconds(duration);
+        speed = normalSpeed;
+    }
+
 }

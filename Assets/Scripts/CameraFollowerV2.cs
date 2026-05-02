@@ -15,8 +15,7 @@ public class CameraFollowerV2 : MonoBehaviour
 
     void Update()
     {
-        // Student code starts here ...
-        // handle input and switch camera view
+       
     }
 
     void LateUpdate()

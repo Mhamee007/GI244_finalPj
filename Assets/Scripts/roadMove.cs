@@ -1,17 +1,18 @@
 using UnityEngine;
 
-/// <summary>
-/// OnComingCar class control the behavior of the oncoming car
-/// </summary>
-public class OnComingCar : MonoBehaviour
+public class roadMove : MonoBehaviour
 {
     public float speed = 10.0f;
+
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
     {
         Transform t = gameObject.GetComponent<Transform>();
         t.Translate(Vector3.forward * speed * Time.deltaTime);
-
     }
 }
