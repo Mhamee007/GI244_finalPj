@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefab;
 
     public Transform[] spawnPoints; 
 
@@ -59,8 +59,12 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    
+
     void spawnEnemy(int index)
     {
-        Instantiate(enemyPrefab, spawnPoints[index].position, Quaternion.identity);
+        int randomIndex_enemy = Random.Range(0, enemyPrefab.Length);
+        GameObject randomEnemy = enemyPrefab[randomIndex_enemy];
+        Instantiate(randomEnemy, spawnPoints[index].position, Quaternion.identity);
     }
 }

@@ -24,7 +24,15 @@ public class obstacles : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {           
+        {
+            PlayerController player = other.GetComponent<PlayerController>();
+            player.hp--;
+
+            if (player.hp <= 0)
+            {
+                Debug.Log("GAME OVER");
+            }
+
             gameObject.SetActive(false);
 
         }

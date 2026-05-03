@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 10f;
     float normalSpeed;
+
+   public float hp = 2;
 
     void Start()
     {
@@ -16,12 +18,13 @@ public class PlayerController : MonoBehaviour
         InputAction moveAction = InputSystem.actions.FindAction("Move");
         Vector2 input = moveAction.ReadValue<Vector2>();
 
-        float forwardInput = input.y;
-        float horizontalInput = input.x;
+        float forwardInput = input.x;
+        float horizontalInput = input.y;
 
-        transform.Translate(Vector3.left * forwardInput * speed * Time.deltaTime);
-        transform.Translate(Vector3.forward * horizontalInput * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * forwardInput * speed * Time.deltaTime);
+        transform.Translate(Vector3.left * horizontalInput * speed * Time.deltaTime);
     }
+    
 
     public void ActivateBoost(float multiplier, float duration)
     {

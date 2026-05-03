@@ -16,7 +16,7 @@ public class itemBoost : MonoBehaviour
             {
                 player.ActivateBoost(boostMultiplier, boostDuration);
             }
-
+            
             gameObject.SetActive(false);
         }
     }

@@ -8,7 +8,6 @@ public class obstaclesNOmove : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameObject.SetActive(false);
-
         }
     }
 }
