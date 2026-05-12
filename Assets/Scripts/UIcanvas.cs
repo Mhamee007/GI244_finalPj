@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class UIcanvas : MonoBehaviour
 {
@@ -7,16 +8,16 @@ public class UIcanvas : MonoBehaviour
     public TMP_Text speedText;
     public TMP_Text hpText;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float score = 0f;
+    public TMP_Text scoreText;
 
-    // Update is called once per frame
+    
     void Update()
     {
         speedText.text = "Speed : " + player.speed.ToString("F1");
         hpText.text = "HP : " + player.hp.ToString();
+
+        score += Time.deltaTime * 10f;
+        scoreText.text = "Score : " + Mathf.FloorToInt(score);
     }
 }
