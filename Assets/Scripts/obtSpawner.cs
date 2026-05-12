@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
 
     void spawnPattern()
     {
-        int pattern = Random.Range(0, 6);
+        int pattern = Random.Range(0, 7);
 
         switch (pattern)
         {
@@ -76,6 +76,11 @@ public class EnemySpawner : MonoBehaviour
 
             case 5: 
                 spawnEnemy(0);
+                spawnEnemy(1);
+                spawnEnemy(2);
+                break;
+
+            case 6:
                 spawnEnemy(1);
                 spawnEnemy(2);
                 break;

@@ -27,12 +27,6 @@ public class obstacles : MonoBehaviour
         {
             PlayerController player = other.GetComponent<PlayerController>();
             player.hp--;
-
-            if (player.hp <= 0)
-            {
-                Debug.Log("GAME OVER");
-            }
-
             gameObject.SetActive(false);
 
         }
