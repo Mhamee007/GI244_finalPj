@@ -76,10 +76,19 @@ public class UIcanvas : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    
     public void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ExitsGame()
+    {
+       
+        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

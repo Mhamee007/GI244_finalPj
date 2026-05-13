@@ -73,7 +73,7 @@ public class itemSpawner : MonoBehaviour
         float randomX = Random.Range(xRange.x, xRange.y);
         float randomZ = Random.Range(zRange.x, zRange.y);
 
-        item.transform.position = new Vector3(randomX, 0, randomZ);
+        item.transform.position = new Vector3(randomX, 1, randomZ);
 
         StartCoroutine(DisableAfterTime(item));
     }
